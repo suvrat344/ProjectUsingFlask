@@ -1,6 +1,6 @@
-# python -m venv myenv
-# .\myenv\Scripts\Activate
-#  pip freeze > requirements.txt
+# python -m venv myenv     (Create Virtual Environment)
+# .\myenv\Scripts\Activate     (Activate Virtual Environment)
+#  pip freeze > requirements.txt      
 
 import pandas as pd
 import joblib
