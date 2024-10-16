@@ -2,6 +2,8 @@
 body
 {
   font-family: Aerial,sans-serif;
+  overflow-x:hidden ;
+  color : rgb(141, 95, 95);
   margin: 0px;
   padding: 0px;
 }
@@ -36,6 +38,11 @@ body
   width: 70%;
   height: 100%;
   background-color: black;
+}
+
+.subheader
+{
+  color:black;
 }
 
 .menu-icon
@@ -81,6 +88,166 @@ body
 
 .nav2 ul li a:hover
 {
-  color: lightgray;
+  color: rgb(81, 81, 60);
 }
 
+.container
+{
+  margin:0px;
+  padding: 0px;
+  position:relative;
+  top:-50px;
+}
+/* Cover image */
+
+.cover-img
+{
+  height:1000px;
+  background-image: url("./img/background.jfif");
+}
+
+.cover-img p
+{
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  top:30%;
+  left:5%;
+}
+
+.container-heading
+{
+  text-align: center;
+  color: black;;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+/* Services Section */
+
+.services_row1
+{
+  display: flex;
+  margin: 10px;
+  padding: 20px;
+}
+
+.services_col
+{
+  flex:1;
+}
+
+.services_row1 img
+{
+  width:350px;
+  height:300px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.services_row1 h3
+{
+  text-align : center;
+}
+
+/* About Us Section */
+.about_row1
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about_col1
+{
+  flex:45%;
+  margin:10px;
+  padding:10px;
+}
+
+.about_col1 img
+{
+  width:100%;
+  height:600px;
+}
+
+.about_col2
+{
+  flex: 90%;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.about_col2 div
+{
+  color:rgba(47, 39, 39,0.8);
+  font-weight: bolder;
+  font-size: 25px;
+  text-align: center;
+  padding: 10px;
+}
+
+.about_col2 div span
+{
+  font-size:50px;
+}
+
+/* Contact Section */
+.contact_row1
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact_col1
+{
+  flex:100%;
+}
+
+.contact_col1 iframe
+{
+  width:90%;
+  margin-left: 5%;
+  padding: 20px;
+}
+
+.contact_col2
+{
+  flex:40%;
+  margin-left:50px;
+  padding: 20px;
+}
+
+.contact_col2 form div
+{
+  padding:10px;
+}
+
+.contact_col2 form div label,input,textarea
+{
+  margin: 2px;
+  padding: 5px;
+}
+
+input,textarea
+{
+  width:90%;
+}
+
+button
+{
+  color:yellow;
+  background-color: black;
+  width:150px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.footer
+{
+  margin:10px;
+}
