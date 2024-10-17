@@ -26,6 +26,7 @@
           </label>
           <input type="email" id="email" name="email" placeholder="EMAIL" required>
         </div>
+        
         <div class="user-input">
           <label for="fullName">
             <i class="bi bi-person icon"></i>
@@ -49,13 +50,10 @@
  
         <button type="submit" class="btn-form">Register</button>
         <div class="extras">
-          <label>
-            <input type="checkbox" name="remember"> Remember me
-          </label>
           <a href="/login" class="redirect">Existing User</a>
         </div>
         <div>
-          {{ msg }}
+          <p>{{ msg }}</p>
         </div>
       </form>
     </div>

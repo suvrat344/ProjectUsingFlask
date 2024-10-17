@@ -23,24 +23,22 @@
           <label for="username">
             <i class="bi bi-person icon"></i>
           </label>
-          <input type="text" id="username" name="uname" placeholder="USERNAME" required>
+          <input type="text" id="username" name="uname" placeholder="USERNAME" required>*
+          <p>{{ msg1 }}</p>
         </div>
 
         <div class="user-input">
           <label for="password">
             <i class="bi bi-file-lock-fill icon"></i>
           </label>
-          <input type="password" id="password" name="pwd" placeholder="*********" required>
+          <input type="password" id="password" name="pwd" placeholder="*********" required>*
+          <p>{{ msg2 }}</p>
         </div>
  
         <button type="submit" class="btn-form">LOGIN</button>
         <div class="extras">
-          <label>
-            <input type="checkbox" name="remember"> Remember me
-          </label>
           <a href="#" class="redirect">Forgot your password?</a>
           <a href="/register" class="redirect">Already Registered</a>
-          <br>{{ msg }}
         </div>
       </form>
     </div>
