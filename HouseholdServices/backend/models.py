@@ -2,23 +2,33 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class User(db.Model):
+  __tablename__ = "user"
+  user_id = db.Column(db.Integer,primary_key=True,autoincrement=True)
+  user_name = db.Column(db.String,nullable=True)
+  password = db.Column(db.String,nullable=True)
+  role = db.Column(db.String,nullable=True)
+  
 class Customer(db.Model):
   __tablename__ = "customer"
   customer_id = db.Column(db.Integer,primary_key = True,autoincrement = True)
-  user_name = db.Column(db.String,nullable = True)
   customer_name = db.Column(db.String,nullable = True)
+  user_id = db.Column(db.Integer,db.ForeignKey("user.user_id"))
   email = db.Column(db.String,nullable = True)
-  password = db.Column(db.String,nullable = True)
+  city = db.Column(db.String,nullable=True)
+  pin_code = db.Column(db.Integer,nullable=True)
+  address = db.Column(db.String,nullable=False)
   
 class Professional(db.Model):
   __tablename__ = "professional" 
   professional_id = db.Column(db.Integer,primary_key = True,autoincrement = True)
-  user_name = db.Column(db.String,nullable = True)
   professional_name = db.Column(db.String,nullable = True)
+  user_id = db.Column(db.Integer,db.ForeignKey("user.user_id"))
   experience = db.Column(db.Integer,nullable = True)
   service_type = db.Column(db.String,nullable = True)
   email = db.Column(db.String,nullable = True)
-  password = db.Column(db.String,nullable = True)
+  city = db.Column(db.String,nullable=True)
+  pin_code = db.Column(db.Integer,nullable=True)
   
 class Services(db.Model):
   __tablename__ = "services_offered"
