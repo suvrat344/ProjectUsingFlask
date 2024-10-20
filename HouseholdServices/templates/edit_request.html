@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Required Information</h1>
+      <!-- Edit Request Form -->
+      <form action="{{ url_for('edit_service',service_request_id=edit_request.service_request_id) }}" method="POST" class="form">
+        <table>
+          <tr>
+            <td>Service</td>
+            <td><input type="text" id="service_name" name="service_name" value={{ service.service_name }} disabled></td>
+          </tr>
+
+          <tr>
+            <td>Request Date</td>
+            <td><input type="date" id="request_date" name="request_date" value={{ edit_request.date_of_request }} required></td>
+          </tr>
+
+          <tr>
+            <td>Available Date</td>
+            <td><input type="date" id="available_date" name="available_date" value={{ edit_request.date_of_completion }} required></td>
+          </tr>
+
+          <tr>
+            <td>Price</td>
+            <td><input type="text" id="price" name="price" value={{ service.price }} disabled></td>
+          </tr>
+
+          <tr>
+            <td>Description</td>
+            <td><textarea rows="4" cols="10" name="description" value={{ edit_request.problem_description }}></textarea></td>
+          </tr>
+
+          <tr>
+            <td colspan=2><button type="submit" class="btn-form">SUBMIT</button></td>
+          </td>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

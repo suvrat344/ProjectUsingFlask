@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for("static",filename="style4.css") }}">
+  </head>
+  <body>
+
+    <h1>User Requested Services</h1>
+    <div class="container">
+      {% for i in range(user_requests | length) %}
+      <div class="col">
+        <div class="first_part">
+          <img src="{{ url_for('static',filename = 'img/' + service_list[i].image_url) }}">
+        </div>
+        <div class="second_part">
+            <p><strong>Service Id : </strong>{{ user_requests[i].service_request_id }}</p>
+            <p><strong> Request Date : </strong>{{ user_requests[i].date_of_request }}</p>
+            <p><strong> Date of Completion : </strong>{{ user_requests[i].date_of_completion }}</p>
+        </div>
+
+        <div class="third_part">
+          <button><a href="{{ url_for('edit_service',service_request_id = user_requests[i].service_request_id) }}">Edit</a></button>
+          <button>Close</button>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

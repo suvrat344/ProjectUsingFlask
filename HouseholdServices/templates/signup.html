@@ -6,20 +6,20 @@
     <title>Signup</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <!-- Bootstrap Icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
     <div class="container">
-
+      <h1>Register</h1>
       <div class="avatar">
-        <img src="../static/img/user.png" alt="User Avatar"> 
+        <img src="{{ url_for('static',filename='img/' + 'user.png') }}" alt="User Avatar"> 
       </div>
 
       <!-- Signup Form -->
-      <form action="/register" method="POST" class="form">
+      <form action="{{ url_for('login') }}" method="POST" class="form">
         <div class="user-input">
           <label for="email">
             <i class="bi bi-envelope-check icon"></i>
@@ -50,7 +50,7 @@
  
         <button type="submit" class="btn-form">Register</button>
         <div class="extras">
-          <a href="/login" class="redirect">Existing User</a>
+          <a href="{{ url_for('login') }}" class="redirect">Existing User</a>
         </div>
         <div>
           <p>{{ msg }}</p>
