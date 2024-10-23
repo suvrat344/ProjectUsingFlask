@@ -14,7 +14,12 @@
     <div class="container">
       <h1>Required Information</h1>
       <!-- Add Service Request Form -->
-      <form action="{{ url_for('add_service',customer_id=customer_id,service_id=service.service_id) }}" method="POST" class="form">
+      <form action="{{ url_for(
+                        'add_customer_service',
+                        user_id = user_id,
+                        customer_id = customer_id,
+                        service_id=service.service_id
+                    )}}" method="POST" class="form">
         <table>
           <tr>
             <td>Service</td>
@@ -23,7 +28,7 @@
 
           <tr>
             <td>Request Date</td>
-            <td><input type="date" id="request_date" name="request_date" required></td>
+            <td><input type="date" id="request_date" name="request_date" required readonly></td>
           </tr>
 
           <tr>
@@ -47,5 +52,6 @@
         </table>
       </form>
     </div>
+    <script src="{{ url_for("static",filename="script.js") }}"></script>
   </body>
 </html>

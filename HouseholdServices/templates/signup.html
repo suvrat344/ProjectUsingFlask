@@ -60,7 +60,7 @@
             <label for="address">
               <i class="bi bi-info icon"></i>
             </label>
-            <input type="text" id="address" name="address" placeholder="ADDRESS" requires>
+            <input type="text" id="address" name="address" placeholder="ADDRESS" required>
           </div>
         </div>
 
@@ -76,15 +76,16 @@
             <label for="experience">
               <i class="bi bi-info icon"></i>
             </label>
-            <input type="number" id="experience" name="experience" placeholder="EXPERIENCE" requires>
+            <input type="number" id="experience" name="experience" placeholder="EXPERIENCE" required>
           </div>
 
           <div class="user-input">
-            <label for="specialization">
-              <i class="bi bi-info icon"></i>
-            </label>
-            <input type="text" id="specialization" name="specialization" placeholder="SPECIALIZATION" requires>
-          </div>
+            <select name="specialization" class="role">
+              <option value="" disabled selected>Select Specialization</option>
+              {% for service in services %}
+                <option value={ service.service_name } class="role">{{ service.service_name }}</option>
+              {% endfor %}
+            </select>
         </div>
 
 
@@ -95,9 +96,7 @@
           <input type="password" id="password" name="pwd" placeholder="PASSWORD" required>
         </div>
  
-        <button type="submit" class="btn-form">
-          <a href="{{ url_for('login') }}" class="redirect">Register</a>
-        </button>
+        <button type="submit" class="btn-form">Register</button>
         <div class="extras">
           <a href="{{ url_for('login') }}" class="redirect">Existing User</a>
         </div>
@@ -107,6 +106,6 @@
       </form>
     </div>
 
-    <script src="../static/script.js"></script>
+    <script src="{{ url_for("static",filename="script.js") }}"></script>
   </body>
 </html>

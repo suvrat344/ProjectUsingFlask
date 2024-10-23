@@ -4,7 +4,7 @@
   padding:0px;
   font-family:'Arial','sans-serif';
   overflow-x: hidden;
-  background:rgba(223,197,198,0.4);
+  background-color:rgba(223,197,198,0.4);
 }
 
 h1
@@ -71,4 +71,19 @@ button a
   background-color: black;
   color:white;
   text-decoration: none;
+}
+
+.empty
+{
+  flex:100%;
+  position: absolute;
+  top:20%;
+  left:100px;
+}
+
+h3
+{
+  font-weight:bold;
+  font-size: 100px;
+  font-style: italic;
 }

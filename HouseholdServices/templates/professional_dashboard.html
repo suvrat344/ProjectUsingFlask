@@ -3,27 +3,63 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>My Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
   </head>
-
   <body>
     <nav>
       <div class="first_nav_div">
-        <span>Welcome {{ professional_name }}...</span>
+        <span>Welcome {{ professional.professional_name }}...</span>
+      </div>
+      <div class="second_nav_div">
+        <a href="{{ url_for(
+                      "professional_history",
+                      professional_id = professional.professional_id
+                  )}}">
+          Professional History
+        </a>
+        <a href="#">Log Out</a>
       </div>
     </nav>
     
-    <div class="container">
-      <div class="first_div">
-
+    {% if pending_request %}
+      <h1>Pending Request</h1>
+      <div class="container">  
+        {% for request in range(pending_request | length ) %}
+          <div class="first_div">
+            <p>
+              <strong>Service Request Id : </strong>
+              {{ pending_request[request].service_request_id }}
+            </p>
+            <p>
+              <strong>Request Date : </strong>
+              {{ service_request_detail[request].date_of_request }}
+            </p>
+            <p>
+              <strong>Date of Completion : </strong>
+              {{ service_request_detail[request].date_of_completion }}
+            </p>
+            <p>
+              <strong>Customer Address : </strong>
+              {{ customer_address[request].address }}
+            </p>
+          </div>
+          <div class="second_div">
+            <form action="{{ url_for(
+                                "professional_request_result",
+                                service_request_id = service_request_detail[request].service_request_id,professional_id=professional.professional_id
+                              )}}" method="POST">
+              <button type="submit" name="action" value="Accept">Accept</button>
+              <button type="submit" name="action" value="Reject">Reject</button>
+              <button type="submit" name="action" value="Close">Close</button>
+            </form>
+          </div>
+        {% endfor %}
       </div>
-      <div class="second_div">
-        <button>Accept</button>
-        <button>Reject</button>
-      </div>
-    </div>
+    {% else %}
+      <h1>No Pending Request</h1>
+    {% endif %}
   </body>
 </html>

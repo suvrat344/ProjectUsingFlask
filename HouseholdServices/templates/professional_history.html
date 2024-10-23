@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Transaction</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+  </head>
+  <body>
+    
+    {% if professional_history %}
+      <div class="container">  
+        <h1>Accepted Request</h1>
+        {% for request in range(professional_history | length ) %}
+          {% if professional_history[request].action_type == "Accept" %}
+            <div class="first_div">
+              <p>
+                <strong>Service Request Id : </strong>
+                {{ professional_history[request].service_request_id }}
+              </p>
+              <p>
+                <strong>Request Date : </strong>
+                {{ service_request_detail[request].date_of_request }}
+              </p>
+              <p>
+                <strong>Date of Completion : </strong>
+                {{ service_request_detail[request].date_of_completion }}
+              </p>
+              <p>
+                <strong>Customer Address : </strong>
+                {{ customer_address[request].address }}
+              </p>
+            </div>
+            <div class="second_div">
+              <form action="{{ url_for(
+                                  "professional_request_result",
+                                  service_request_id = service_request_detail[request].service_request_id,professional_id = professional_history[request].professional_id
+                                )}}" method="POST">
+                <button type="submit" name="action" value="Close">Close</button>
+              </form>
+            </div>
+          {% endif %}
+        {% endfor %}
+        <h1>Rejected Request</h1>
+        {% for request in range(professional_history | length ) %}
+          {% if professional_history[request].action_type == "Reject" %}
+            <div class="first_div_reject">
+              <p>
+                <strong>Service Request Id : </strong>
+                {{ professional_history[request].service_request_id }}
+              </p>
+              <p>
+                <strong>Request Date : </strong>
+                {{ service_request_detail[request].date_of_request }}
+              </p>
+              <p>
+                <strong>Date of Completion : </strong>
+                {{ service_request_detail[request].date_of_completion }}
+              </p>
+              <p>
+                <strong>Customer Address : </strong>
+                {{ customer_address[request].address }}
+              </p>
+            </div> 
+          {% endif %}
+        {% endfor %}
+           
+      </div>
+    {% else %}
+      <h1>No Pending Request</h1>
+    {% endif %}
+  </body>
+</html>

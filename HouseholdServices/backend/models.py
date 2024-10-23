@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import PrimaryKeyConstraint
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -47,6 +49,16 @@ class Service_Request(db.Model):
   professional_id =db.Column(db.Integer,db.ForeignKey("professional.professional_id"),nullable = True)
   date_of_request = db.Column(db.Date,nullable = True)
   date_of_completion = db.Column(db.Date,nullable = True)
-  service_status = db.Column(db.String,nullable = True)
+  service_status = db.Column(db.String,default = "Pending",nullable=False)
   problem_description = db.Column(db.String,nullable=True)
   remarks = db.Column(db.String,nullable = True)
+
+class Professional_Action(db.Model):
+  __tablename__ = "professional_action"
+  service_request_id = db.Column(db.Integer,db.ForeignKey("service_request.service_request_id"))
+  professional_id = db.Column(db.Integer,db.ForeignKey("professional.professional_id"))
+  action_type = db.Column(db.String)
+  
+  __table_args__ = (
+    PrimaryKeyConstraint("service_request_id","professional_id"),
+  )

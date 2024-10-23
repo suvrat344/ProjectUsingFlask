@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>My Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
@@ -12,10 +12,10 @@
   <body>
     <nav>
       <div class="first_nav_div">
-        <span>Welcome {{ customer_name }}...</span>
+        <span>Welcome {{ customer.customer_name }}...</span>
       </div>
       <div class="second_nav_div">
-        <a href=" {{ url_for('user_history',customer_id = customer_id) }}">Edit Service</a>
+        <a href=" {{ url_for('customer_history',customer_id = customer.customer_id) }}">Edit Service</a>
         <a href=" {{ url_for('login') }}">Log Out</a>
       </div>
     </nav>
@@ -28,7 +28,13 @@
           <h3>{{ item.service_name }}</h3>
           <p>{{ item.description }}</p>
           <button>
-            <a href="{{ url_for('add_service',customer_id=customer_id,service_id=item.service_id) }}">
+            <a href="{{ url_for(
+                          'add_customer_service',
+                          user_id=customer.user_id,
+                          customer_id=customer.customer_id,
+                          service_id=item.service_id
+                          ) 
+                      }}">
               Add Service
             </a>
           </button>
