@@ -14,7 +14,7 @@
     <!-- Navigation Bar -->
     <div class="navbar">
       <div class="nav1">
-        <img src="../static/img/logo.avif" class="logo">
+        <img src = " {{ url_for('static',filename = 'service_img/' + 'logo.avif') }}" class="logo">
         <span class="logo-text">HomeEase Solutions</span>
       </div>
       <div class="nav2">
@@ -43,21 +43,21 @@
       <h2 id="services" class="container-heading">Services</h2>
       <div class="services_row1">
         <div class="services_col">
-          <img src="../static/img/service1.jpg">
+          <img src="{{ url_for('static',filename = 'service_img/' + 'service1.jpg') }}">
           <h3 class="subheader">AC Repairing</h3>
           <p>
             We provide fast, reliable, and affordable air conditioning repair solutions. Our certified technicians are dedicated to restoring your comfort and ensuring your AC runs efficiently. Contact us today for a free estimate and experience the difference.
           </p>
         </div>
         <div class="services_col">
-          <img src="../static/img/service2.jpg">
+          <img src="{{ url_for('static',filename = 'service_img/' + 'service2.jpg') }}">
           <h3 class="subheader">Plumber Services</h3>
           <p>
             We specialize in top-notch plumbing  solutions for your home and business. From leaky faucets to complete pipe installations, our experienced team is here to tackle any issue swiftly and efficiently. Trust us for quality service and peace of mind—contact us today!
           </p>
         </div>
         <div class="services_col">
-          <img src="../static/img/service3.jpg">
+          <img src="{{ url_for('static',filename = 'service_img/' + 'service3.jpg') }}">
           <h3 class="subheader">Electrical Services</h3>
           <p>
             We deliver safe and reliable electrical solutions for residential and commercial needs. Whether it’s installation, repairs, or upgrades,our licensed electricians are ready to light up your space. Get in touch today for quality service and a brighter tomorrow!
@@ -80,7 +80,7 @@
           </p>
         </div>
         <div class="about_col1">
-          <img src="../static/img/aboutImage.jpg">
+          <img src="{{ url_for('static',filename = 'service_img/' + 'aboutImage.jpg') }}">
         </div>
         <div class="about_col2">
           <div>

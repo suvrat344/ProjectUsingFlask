@@ -24,14 +24,13 @@
       <div class="row">
         {% for item in service %}
         <div class="col">
-          <img src={{ url_for("static",filename='img/' + item.image_url) }}>
+          <img src={{ url_for("static",filename='service_img/' + item.image_url) }}>
           <h3>{{ item.service_name }}</h3>
           <p>{{ item.description }}</p>
           <button>
             <a href="{{ url_for(
                           'add_customer_service',
                           user_id=customer.user_id,
-                          customer_id=customer.customer_id,
                           service_id=item.service_id
                           ) 
                       }}">

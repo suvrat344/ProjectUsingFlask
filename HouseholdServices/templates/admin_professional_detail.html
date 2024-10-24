@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Professional Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'style8.css') }}">
+  </head>
+  <body>
+    
+    {% if professionals %}
+      <h1>Professional Details</h1>
+      <div class="container">
+        {% for professional in professionals %}
+          <div class="first_div">
+            <img src = {{ url_for('static',filename = 'professional_img/' + professional.image_url) }}>
+          </div>
+          <div class="second_div">
+            <p>
+              <strong>Professional_id : </strong>
+              {{ professional.professional_id }}
+            </p>
+            <p>
+              <strong>User_id : </strong>
+              {{ professional.user_id }}
+            </p>
+            <p>
+              <strong>Name : </strong>
+              {{ professional.professional_name }}
+            </p>
+            <p>
+              <strong>E-mail : </strong>
+              {{ professional.email }}
+            </p>
+            <p>
+              <strong>City : </strong>
+              {{ professional.city }}
+            </p>
+            <p>
+              <strong>Pin Code : </strong>
+              {{ professional.pin_code }}
+            </p>
+            <p>
+              <strong>Experience : </strong>
+              {{ professional.experience }}
+            </p>
+            <p>
+              <strong>Specilaization : </strong>
+              {{ professional.service_type }}
+            </p>
+          </div>
+          <div class="third_div">
+            <button type="submit">Block</button>
+            <button type="submit">Unblock</button>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+    <div class="empty">
+      <h3>No Professional Available</h3>
+    </div>
+    {% endif %}
+  </body>
+</html>

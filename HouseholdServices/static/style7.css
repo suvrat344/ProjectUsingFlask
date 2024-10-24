@@ -1,0 +1,35 @@
+*{
+  margin:0px;
+  padding:0px;
+  background-color:rgba(223,197,198,0.4);
+  font-family:'Arial','sans-serif';
+}
+
+.container
+{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table
+{
+  padding:10px;
+  margin:10px;
+}
+
+
+td
+{
+  font-size:20px;
+}
+
+button
+{
+  margin:10px;
+  padding:10px;
+  background-color: black;
+  color:white;
+  border-radius: 10px;
+  width:70px;
+}

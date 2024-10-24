@@ -34,10 +34,7 @@
               </p>
             </div>
             <div class="second_div">
-              <form action="{{ url_for(
-                                  "professional_request_result",
-                                  service_request_id = service_request_detail[request].service_request_id,professional_id = professional_history[request].professional_id
-                                )}}" method="POST">
+              <form action="{{ url_for("professional_request_result",service_request_id = service_request_detail[request].service_request_id,professional_id = professional_history[request].professional_id) }}" method="POST">
                 <button type="submit" name="action" value="Close">Close</button>
               </form>
             </div>
@@ -69,7 +66,9 @@
            
       </div>
     {% else %}
-      <h1>No Pending Request</h1>
+      <div class="empty">
+        <h3>No pending request </h3>
+      </div>
     {% endif %}
   </body>
 </html>

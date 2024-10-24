@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Service Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'style8.css') }}">
+  </head>
+  <body>
+   
+    {% if services %}
+      <h1>Service Details</h1>
+      <div class="container">
+        {% for service in services %}
+          <div class="first_div">
+            <img src = "{{ url_for('static',filename = 'service_img/' + service.image_url) }}">
+          </div>
+          <div class="second_div">
+            <p>
+              <strong>Service Id : </strong>
+              {{ service.service_id }}
+            </p>
+            <p>
+              <strong>Service Name : </strong>
+              {{ service.service_name }}
+            </p>
+            <p>
+              <strong>Description : </strong>
+              {{ service.description }}
+            </p>
+            <p>
+              <strong>Price : </strong>
+              {{ service.price }}
+            </p>
+            <p>
+              <strong>Time Required : </strong>
+              {{ service.time_required }}
+            </p>
+          </div>
+          <div class="third_div">
+            <button type="button" onclick="window.location.href='{{ url_for('update_service',service_id = service.service_id) }}'">
+              Update
+            </button>
+            <button type="button" onclick="window.location.href='{{ url_for('delete_service',service_id = service.service_id) }}'">
+              Delete
+            </button>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty">
+        <h3>No Service Available</h3>
+      </div>
+    {% endif %}
+  </body>
+</html>

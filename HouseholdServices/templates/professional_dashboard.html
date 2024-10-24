@@ -14,12 +14,7 @@
         <span>Welcome {{ professional.professional_name }}...</span>
       </div>
       <div class="second_nav_div">
-        <a href="{{ url_for(
-                      "professional_history",
-                      professional_id = professional.professional_id
-                  )}}">
-          Professional History
-        </a>
+        <a href="{{ url_for("professional_history",user_id = professional.user_id)}}">Professional History</a>
         <a href="#">Log Out</a>
       </div>
     </nav>
@@ -47,10 +42,7 @@
             </p>
           </div>
           <div class="second_div">
-            <form action="{{ url_for(
-                                "professional_request_result",
-                                service_request_id = service_request_detail[request].service_request_id,professional_id=professional.professional_id
-                              )}}" method="POST">
+            <form action="{{ url_for("professional_request_result",service_request_id = service_request_detail[request].service_request_id,user_id=professional.user_id)}}" method="POST">
               <button type="submit" name="action" value="Accept">Accept</button>
               <button type="submit" name="action" value="Reject">Reject</button>
               <button type="submit" name="action" value="Close">Close</button>
@@ -59,7 +51,9 @@
         {% endfor %}
       </div>
     {% else %}
-      <h1>No Pending Request</h1>
+      <div class="empty">
+        <h3>No pending request </h3>
+      </div>
     {% endif %}
   </body>
 </html>

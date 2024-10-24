@@ -90,3 +90,18 @@ button
   border-radius: 10px;
   margin:20px;
 }
+
+.empty
+{
+  flex:100%;
+  position: absolute;
+  top:20%;
+  left:100px;
+}
+
+h3
+{
+  font-weight:bold;
+  font-size: 100px;
+  font-style: italic;
+}

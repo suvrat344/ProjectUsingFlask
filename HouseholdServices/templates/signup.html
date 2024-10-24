@@ -21,8 +21,8 @@
         <div class="user-input">
           <select name="role" class="role" onchange="toggleFields()">
             <option value="" disabled selected>Select Role</option>
-            <option value="Customer" class="role">Customer</option>
-            <option value="Professional" class="role">Professional</option>
+            <option value="Customer">Customer</option>
+            <option value="Professional">Professional</option>
           </select>
         </div>
 
@@ -80,12 +80,13 @@
           </div>
 
           <div class="user-input">
-            <select name="specialization" class="role">
+            <select name="specialization">
               <option value="" disabled selected>Select Specialization</option>
               {% for service in services %}
-                <option value={ service.service_name } class="role">{{ service.service_name }}</option>
+                <option value={{ service.service_name }} class="role">{{ service.service_name }}</option>
               {% endfor %}
             </select>
+          </div>
         </div>
 
 

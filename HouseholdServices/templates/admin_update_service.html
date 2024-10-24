@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style9.css') }}">
+  </head>
+
+  <body>
+    <div class="container">  
+      <h1>Update Service</h1>
+      <form action="{{ url_for('update_service',service_id = service.service_id) }}" method="POST" class="form">
+        <div class = "row">
+          <div class = "col1">
+            Service Id
+          </div>
+          <div class = "col2">
+            <input type="text" id="service_id" name="service_id" value={{ service.service_id }} disabled>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            Service Name
+          </div>
+          <div class = "col2">
+            <input type="text" id="service_name" name="service_name" value={{ service.service_name }}>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            Description
+          </div>
+          <div class = "col2">
+            <textarea rows="4" cols="15" name="description">
+              {{ service.description }}
+            </textarea>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            Image URL
+          </div>
+          <div class = "col2">
+            <input type="text" id="url" name="url" value={{ service.image_url }}>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            Price
+          </div>
+          <div class = "col2">
+            <input type="number" id="price" name="price" value={{ service.price }}>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            Time Required
+          </div>
+          <div class = "col2">
+            <input type="number" id="time_required" name="time_required" value={{ service.time_required }}>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class = "col1">
+            <td colspan=2><button type="submit" class="btn-form">Submit</button></td>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
